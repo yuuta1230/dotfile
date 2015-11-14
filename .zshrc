@@ -1,3 +1,10 @@
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/yuuta/.gvm/bin/gvm-init.sh" ]] && source "/Users/yuuta/.gvm/bin/gvm-init.sh"
+
+if [ -e /usr/local/share/zsh-completions ]; then
+	 fpath=(/usr/local/share/zsh-completions $fpath)
+fi
+
 # 少し凝った zshrc
 # License : MIT
 # http://mollifier.mit-license.org/
@@ -23,7 +30,7 @@ SAVEHIST=1000000
 # 1行表示
 # PROMPT="%~ %# "
 # 2行表示
-PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
+PROMPT="%{${fg[green]}%}[%n@%M %*]%{${reset_color}%} %~
 %# "
 
 
@@ -80,9 +87,6 @@ setopt no_beep
 
 # フローコントロールを無効にする
 setopt no_flow_control
-
-# Ctrl+Dでzshを終了しない
-setopt ignore_eof
 
 # '#' 以降をコメントとして扱う
 setopt interactive_comments
@@ -165,3 +169,4 @@ case ${OSTYPE} in
 esac
 
 # vim:set ft=zsh:
+
